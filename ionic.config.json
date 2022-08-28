@@ -1,0 +1,7 @@
+{
+  "name": "woutick",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
