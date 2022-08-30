@@ -1,0 +1,38 @@
+<ion-content>
+  <ion-list class="ion-padding" class="ion-margin-top" *ngIf="details">
+    <ion-item>
+      <ion-img
+        src="{{ details.urls.regular }}"
+        [alt]="details.alt_description"
+      ></ion-img>
+    </ion-item>
+    <ion-item class="ion-margin-top">
+      <ion-label>NAME: {{ details.alt_description }}</ion-label>
+    </ion-item>
+    <ion-item class="ion-margin-top">
+      <ion-label>ID: {{ details.id }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>VIEWS: {{ details.views }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>WIDTH: {{ details.width }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>LIKES: {{ details.likes }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="dark">
+    <ion-title slot="end" color="light" size="small"
+      >AMAZING IMAGES FROM UNSPLAS</ion-title
+    >
+    <ion-buttons slot="start">
+      <ion-button (click)="comeBack()">
+        <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+        <ion-label>Regresar</ion-label>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

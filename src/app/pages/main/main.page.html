@@ -1,0 +1,57 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button slot="ico-only" (click)="showMenu()">
+        <ion-icon name="menu-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title color="light">Busqueda</ion-title>
+  </ion-toolbar>
+  <ion-searchbar
+    mode="ios"
+    animated
+    (ionChange)="onSearch($event)"
+    (ionChange)="showLoadingEvent()"
+    inputmode="text"
+    placeholder="Buscar Imagenes"
+    debounce="750"
+  ></ion-searchbar>
+</ion-header>
+
+<ion-content *ngIf="images" class="ion-padding">
+  <ion-card *ngFor="let image of images.results" class="ion-margin">
+    <ion-card-header>
+      <ion-img
+        [src]="image.urls.regular "
+        [alt]="image.alt_description"
+      ></ion-img>
+      <ion-card-subtitle>{{image.user.name}}</ion-card-subtitle>
+      <ion-card-title>{{image.description}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content> {{image.user.bio}} </ion-card-content>
+    <ion-button
+      (click)="onShowDetail(image.id)"
+      expand="block"
+      size="small"
+      color="dark"
+      class="ion-margin"
+    >
+      Ver mas
+    </ion-button>
+  </ion-card>
+
+  <ion-text color="danger">
+    <h6>{{noTermino}}</h6>
+  </ion-text>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light" size="small"
+      >AMAZING IMAGES FROM UNSPLAS</ion-title
+    >
+  </ion-toolbar>
+</ion-footer>
